@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .info-users__sign {
+        height: 38px;
+        margin: 0 auto;
+        position: relative;
+        width: 38px;
+    }
+    
+    .has-arrow>.square-fake-arrow {
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+        z-index: 13;
+    }
+    
+    .has-arrow.has-arrow--bottom-right>.square-fake-arrow {
+        border-left: 1px solid #dadada;
+        border-top: 1px solid #dadada;
+        transform: translateY(-46%) rotate(45deg);
+        right: 100px;
+        top: 100%;
+    }
+    
+    .modal-profile {
+        width: 410px;
+        background-color: #fff;
+        border: 1px solid #dadada;
+        border-radius: 8px;
+        box-shadow: 0 0 5px 5px rgb(0 0 0 / 5%);
+        display: none;
+        left: 50%;
+        min-width: 390px;
+        padding: 15px;
+        position: absolute;
+        top: 100%;
+        transform: translateX(-50%);
+        z-index: 9;
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="info-users__sign bg-blue has-arrow--bottom-right has-arrow" style="display: block;">
+        <span class="square-fake-arrow"></span>
+        <a href="/cu.phuong" class="config-wrap-avatar" style="width: 100%; height: 100%;">
+            <span class="info-users__icon"><i  class="icon-fonts icon-fonts--tick"></i></span>
+            <div class="modal-profile" style="">
+                <div class="modal-profile__top">
+                    <a href="/cu.phuong" class="modal-profile__avatar">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAHoAYgMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAHAAECBQYEAwj/xABAEAABAwIDBQUEBwQLAAAAAAABAAIDBBEFITEGBxITQSJRYXGBkaGxwRQjMkJy0fAVUoLhJDU2U3N0kpOys/H/xAAYAQADAQEAAAAAAAAAAAAAAAAAAgMBBP/EACERAAICAQQDAQEAAAAAAAAAAAABAhEhAxIxQSMyUSIT/9oADAMBAAIRAxEAPwAwjRJLonTAMkkkgwSaydJAEUlI6XXk2WN7i1kjXOGoBvZaBIplJNZYBEqKmolAHmdUk51SQadI0TphonQAkkkrIAS5sRrqfDaOWrrJAyKMXJ+S6UMt42JmsxD6Ax/1FKLuA+88j5Ze9LKVIeEdzozu1O3+LYlUGGkc2joSbcAALnDxOvsss1HVVEDm1NNXyxyNN+KORwLSfKxC8K4ds2HXJeVPQz1MgjiaXHqpbvpbbWEETZDeTUQzR0m0kjZYHmzK1osWfitkR46jrfoVw4OaHNIIIuCOoXzdV4NPh443Alj9BbK6KO6TaE1tBJg1TJxS0jeKAnV0V7W/hJHoR3J4y6J6kKVhATFSUSqESCSR1SQB0DROEw0Ugg0eySSSDDmxGpZQ0M9VJ9mGMvPogfUzvlM1VMbvlcXH2/r3ombx60w4Myka7hdUyWP4RmfkhNXTcYDIxYZAD9eHxUdR26OvRVRs8I6fnzR3Fxcn8vitnsxhDIonPcBxOKraDC5RQmcRF/C6Ps3tcONlZ4FE76RFalNM+QuPLa53ZAdbteeoUmXWD02romvw1/CO03MeaxmzuI/sLaeirgeGJsoEovly3dl3szPoFrdq5Jp6v6GGSckX43AkNbYXztmb6WWLxihdBBSPkbwtmi4rdwJIPvWrAslaPolRKrNlqx2IbN4bVPN5H07A897gLO94KsiupHA8EDqkkdUkGHSNE41TBOg0kkorxrquKio5qqdwbHCwvcT3BAAy3oYiJMV5LTlBHwepzPyHohrXVpjDuWbv0B7vFWO0+JSVtZNUvJBkcSAdbLOU4fM97QSL/eOQHqocuzrbpKKDRgk5n2cfLDYn6NHJc/vAk29oCuYXsbIyQN7LwCTZDPZbaAUOG1GGtcXxzDlxyHo+3XuHXyW/e+tdC0Ya+MBjAAXNufMZ2SN0WS3HPjJY6vnMdnXsAAOvcqXbrDm0tDR05aOZFCGvI/eJF/eStNsvhk4kmxLEpuaWHhhZlYO6u+Q9Vj94WJcVS2DiPHI6wz6XzWViwbSe34bDdXUPk2YbDIb8qV3D5E3+N1sCsduviLdn3SnR8zw301962BXVHg4NT2ZA6pKJOaS0U7BonTDRJADod7y8cHZwyM/Us+sqCPvn7rfLqfRbPHcSiwrDZquYgBgyH7x6BAjF8QkxKqlnmeXBzyfxHvSTfSLaUc2yprnune6RwyOarS/hNrdjwVjWnh4WXz6hVk7rk9yyMTZyyajZiGKWkdJw/eOZGqscXx2rwahtRzlrn5NaRcBZzZarkiqH0/MYIngu4Xak+C8NqKoy1bGahg96lt/RX+njwFfdTtDJjmEVWH1rg6ppH34sgXseSQfbcexY7eVSTUe0lNI8HlPaQ09Lg3VTu/xn9hbR0FQ42p6h5p5+7hdw2Po6x8rowbb4BHjuFvisGzDtQvP3XdPT807RKMjy3UzCXY+DPNssgP8Aqv8AktcUPtz80jMKrqCdjo5qWpcHMdq2/T4rfk2VY8EZckSc0l5k5p1op3g5JzooBedVKIoHvJ0CABlvPxU1NW2jY/6mAEuF9Xd/y/8AUOHzcF5LXGjPNWm2OImavnc03L3kA94GXyXZsLsqNqHVonmfBDTcsRvYL3ceK+vkPapcuzpeFRkpyW3dKe07O18z/JcMriTmipX7pamOOokjxZszuBxiY6LhLnWyBN7aoaYvhtZhFY+jr4uCZp1GYcO8HqE+CbXZzU8/IqmS2vyzey78YMT4eeDxcwgtI8VU+KcyuEPKObb3Hgsa7MUqVDC7ha5t56L6T2QxT9u7LUFa4gyPhAksdHjsu94K+a2Iwbk8R/otbhkjvsu50YPccnAeoB9UrGRsKOgZQbRSVsVmfS4xHUDo5w+w7ztcHzHcr9xXBiEVxxDUL0o5ubAOI3cMitg+jJrs9Sc0lE6pJyZaBZ/bXEBQYNKeKz3jhb5n9FXwOSGe83EC+qipgeyGlx8Asm6Q+nG5AtxGQz1oFtBf2nL4IwbnaYR4DWTa8yqLfRrW/MlBlsgkqJJBncnMo7bqouTsRSHrJJK+/wDGR8AkSHbs0dbLwsKFm9B0AwN8sjGulMrWREjMEnP3AoiYtLwsOaD+9aq4jh9KNCXynzFgP+RSXc0UqoNmA6pnaqSZyucw7FudgpnYXiOH1pdwxySmN/4XAj+fosTCwucGjUmwRGwLCnRT0FLWMsY5vQ2vmPVSky+krC9P24/MKroZDFVOiOQdp5qxpXF8DQ43IFiqnEDyKtkncQVjdOzUrTRak5lJR4kysc5ZPN2WGpQT28q3TYvib/7u7G+AAt8bI2/kgTtv/WOK/wCJJ/2NST6K6XZj4Ow26+hd3reXsNhPjCXe1xPzXzyfseq+idh/7E4N/lGfBNLgSBHGH5FBXeROZdoYogbtipm+hJdf5I1YsByHG2d0BttiTtXiFzoY7f7bVKHuX1H4ylSKcKUYDpWBwBBcAQeuavRzHfgtJLNitHCG2fLIws4uoJyX0C3CqZtLBCbPdGwyNkORDrZH3koTTRsZvOljYxrWMqbNaBYNAZkAPCwRjp84c8/qWa+qSrsdukjiwSvfWUol5Zbnwm3eNVKsZ9Mmjjax7bG7y5pGSsaWNkUDGxMaxobo0WC8z9pJtsfexXCSSSoSP//Z">
+                    </a>
+                    <div class="modal-profile__detail">
+                        <h5 class="modal-profile__name">
+                            <a href="/cu.phuong" class="modal-profile__name-link">
+                            Chị. Đái Song An
+                        </a>
+                        </h5>
+                        <p class="modal-profile__des">
+
+                        </p>
+                        <ul class="modal-profile__list" style="height: 65px;">
+                            <li class="modal-profile__item"><span class="modal-profile__icon"><i class="icon-fonts icon-fonts--follow"></i></span>
+                                <div class="modal-profile__info"><a class="modal-profile__value" style="display: block;">
+                                    Đang theo dõi
+                                    <span data-v-238eb3e6="">0 người</span></a> <a class="modal-profile__value">
+                                    Được theo dõi bởi
+                                    <span data-v-238eb3e6="">0 người</span></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-profile__btn">
+                    <button class="button button--gray">
+                    Theo dõi
+                    </button>
+                    <button disabled="disabled" class="button button--primary-second">
+                    Gọi điện thoại
+                    </button>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>
